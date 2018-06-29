@@ -32,6 +32,7 @@ easyBtn.addEventListener("click", function () {
     }
     timp.textContent= "";
        messageDisplay.textContent = "";
+    h1.style.background = "steelblue";
 });
 hardBtn.addEventListener("click", function () {
     start = new Date().getTime();
@@ -47,6 +48,8 @@ hardBtn.addEventListener("click", function () {
     }
     messageDisplay.textContent = "";
     timp.textContent= "";
+    h1.style.background = "steelblue";
+    
 });
 
 resetButton.addEventListener("click", function () {

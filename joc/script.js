@@ -33,6 +33,7 @@ easyBtn.addEventListener("click", function () {
     timp.textContent= "";
        messageDisplay.textContent = "";
     h1.style.background = "steelblue";
+     a=true;
 });
 hardBtn.addEventListener("click", function () {
     start = new Date().getTime();
@@ -49,7 +50,7 @@ hardBtn.addEventListener("click", function () {
     messageDisplay.textContent = "";
     timp.textContent= "";
     h1.style.background = "steelblue";
-    
+     a=true;
 });
 
 resetButton.addEventListener("click", function () {
@@ -69,12 +70,14 @@ resetButton.addEventListener("click", function () {
     messageDisplay.textContent = "";
     this.textContent = "Culori noi";
    timp.textContent= "";
+    a=true;
 
 });
 
 colorDisplay.textContent = pickedColor;
 
 for (var i = 0; i < squares.length; i++) {
+    var a = true;
     // adaug culorile la fiecare patrat
     squares[i].style.background = colors[i];
     //cand dau click pe un patrat
@@ -82,14 +85,18 @@ for (var i = 0; i < squares.length; i++) {
         // pun intr-o variabila culoarea patratatului ca sa o verific cu culoarea pe care trebuie sa o ghicesc, pentru a vedea daca am nimerit culoarea
         var clickedColor = this.style.backgroundColor;
         if (clickedColor === pickedColor) {
-            messageDisplay.textContent = "Corect!"
-            resetButton.textContent = "Joc nou"
-            changeColors(clickedColor);
+            messageDisplay.textContent = "Corect!";
+            resetButton.textContent = "Joc nou";
+            changeColors(pickedColor);
             h1.style.backgroundColor = clickedColor;
-            end = new Date().getTime();
-            timeTaken = (end - start) / 1000;
-            timp.style.display ="inline";
-            timp.innerHTML = "Timpul tau: " + timeTaken + " s.";
+            if(a){
+            afisareTimp();
+                }
+            a=false;
+            
+         
+            
+          
 
 
 
@@ -99,8 +106,10 @@ for (var i = 0; i < squares.length; i++) {
             messageDisplay.textContent = "Gresit!";
 
         }
+        
     });
 };
+
 
 function changeColors(color) {
     //schimbam culoarea la fiecare patrat
@@ -108,13 +117,13 @@ function changeColors(color) {
         squares[i].style.backgroundColor = color;
 
     }
-    timp.style.display = "none";
+    
 }
 
 function pickColor() {
     var random = Math.floor(Math.random() * colors.length);
     return colors[random];
-    timp.style.display = "none";
+    
 
 }
 
@@ -128,7 +137,7 @@ function generateRandomColors(num) {
     }
     //returnam vectorul
     return arr;
-    timp.style.display = "none";
+
 }
 
 function randomColor() {
@@ -139,5 +148,12 @@ function randomColor() {
     //alegem un albastru intre 0 si 255
     var b = Math.floor(Math.random() * 256);
     return "rgb(" + r + ", " + g + ", " + b + ")";
-    timp.style.display = "none";
+
+}
+function afisareTimp() {
+     end = new Date().getTime();
+            timeTaken = (end - start) / 1000;
+            timp.style.display ="inline";
+            timp.innerHTML = "Timpul tau: " + timeTaken + " s.";
+    return timp.innerHTML;
 }

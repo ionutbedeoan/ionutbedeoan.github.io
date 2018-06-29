@@ -56,6 +56,4 @@
     distance: '0px'
   }, 300);
 
-  });
-
 })(jQuery); // End of use strict

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        .green {
+            color: lawngreen;
+        }
+
+        #p {
+            font-size: 30px;
+            font-weight: bold;
+            color: green;
+        }
+
+        .container {
+            text-align: center;
+
+        }
+
+        body {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b3dced+0,29b8e5+69,bce0ee+100 */
+            background-color: royalblue;
+        color: white;}
+        
+            .buton {
+                padding: 10px;
+                color:white;
+                background-color: coral;
+                font-size: 15px;
+                margin: 0 auto;
+                border: none;
+                border-radius: 10px;
+                outline: none;
+            }
+        p{
+            font-size:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Scorul este: <span id="span1">0</span> la <span id="span2">0</span></h1>
+        <p>Playing to: <span id="span3">5</span></p>
+
+        <P> Selecteaza pana la cat doresti sa joci, daca nu selectezi nimic se va juca pana la 5:
+
+
+            <input type="number" min="0">
+        </P>
+
+        <button class="buton" id="p1">Player One</button>
+
+        <button class="buton" id="p2">Player Two</button>
+
+        <button class="buton" id="reset">Resetare</button>
+        <p id="p"></p>
+    </div>
+
+    <script>
+        var p1Button = document.querySelector("#p1");
+        var p2Button = document.querySelector("#p2");
+        var reset = document.querySelector("#reset");
+        var h1 = document.querySelector("h1");
+        var p1Display = document.querySelector("#span1");
+        var p2Display = document.querySelector("#span2");
+        var a = document.querySelector("#span3");
+        var input = document.querySelector("input");
+        var felicitari = document.querySelector("#p");
+        var p1Score = 0;
+        var p2Score = 0;
+        var gameOver = false;
+        var winningScore = 5;
+        p1Button.addEventListener("click", function() {
+            if (!gameOver) {
+                p1Score++;
+                if (p1Score == winningScore) {
+                    p1Display.classList.add("green");
+                    p.textContent = "Felicitari. Player One a castigat jocul";
+                    gameOver = true;
+                }
+                p1Display.textContent = p1Score;
+            }
+
+        });
+        p2Button.addEventListener("click", function() {
+            if (!gameOver) {
+                p2Score++;
+                if (p2Score == winningScore) {
+                    p2Display.classList.add("green");
+                    p.classList.add("green");
+                    p.textContent = "Felicitari. Player Two a castigat jocul";
+                    
+                    gameOver = true;
+                }
+                p2Display.textContent = p2Score;
+            }
+        });
+
+        function resetare() {
+            p1Score = 0;
+            p2Score = 0;
+            p1Display.classList.remove("green");
+            p2Display.classList.remove("green");
+            gameOver = false;
+            p1Display.textContent = "0";
+            p2Display.textContent = "0";
+            p.textContent = "";
+        };
+
+        reset.addEventListener("click", function() {
+            resetare();
+
+        });
+
+
+        input.addEventListener("change", function() {
+            a.textContent = this.value;
+            winningScore = this.value;
+            resetare();
+
+        });
+
+    </script>
+</body>
+
+</html>

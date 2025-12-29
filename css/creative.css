@@ -164,7 +164,18 @@ header.masthead {
       font-size: 4rem; } }
 
 .service-box {
-  max-width: 400px; }
+  max-width: 400px;
+  background-color: #161F32;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+  color: white !important;}
+
+.service-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); }
 
 .portfolio-box {
   position: relative;
